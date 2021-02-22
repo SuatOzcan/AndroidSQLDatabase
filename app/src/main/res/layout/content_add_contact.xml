@@ -15,12 +15,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="50dp"
         android:layout_marginTop="312dp"
-        android:autofillHints="First Name"
-        android:hint="First name"
+        android:autofillHints="@string/first_name"
+        android:hint="@string/first_name"
         app:layout_constraintHorizontal_bias="0.595"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></com.google.android.material.textfield.TextInputEditText>
+        app:layout_constraintTop_toTopOf="parent"
+        android:inputType="textCapWords"></com.google.android.material.textfield.TextInputEditText>
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/last_name_edit_text"
@@ -28,12 +29,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="50dp"
         android:layout_marginTop="264dp"
-        android:autofillHints="Last Name"
-        android:hint="Last name"
+        android:autofillHints="@string/last_name"
+        android:hint="@string/last_name"
         app:layout_constraintHorizontal_bias="0.737"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/first_name_edit_text"></com.google.android.material.textfield.TextInputEditText>
+        app:layout_constraintTop_toBottomOf="@+id/first_name_edit_text"
+        android:inputType="textCapWords"></com.google.android.material.textfield.TextInputEditText>
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/phone_number_edit_text"
@@ -41,11 +43,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="50dp"
         android:layout_marginTop="312dp"
-        android:autofillHints="Phone number"
-        android:hint="Phone Number"
+        android:autofillHints="@string/phone_number"
+        android:hint="@string/phone_number"
         app:layout_constraintHorizontal_bias="0.595"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/last_name_edit_text"></com.google.android.material.textfield.TextInputEditText>
+        app:layout_constraintTop_toBottomOf="@+id/last_name_edit_text"
+        android:inputType="phone">
+    </com.google.android.material.textfield.TextInputEditText>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
