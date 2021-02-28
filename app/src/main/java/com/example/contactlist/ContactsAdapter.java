@@ -32,6 +32,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
             this.nameTextView = layout.findViewById(R.id.full_name_text_view);
             this.numberTextView = layout.findViewById((R.id.phone_number_text_view));
             this.onItemSelectedListener = onItemSelectedListener;
+            layout.setOnClickListener(this);
         }
 
         @Override

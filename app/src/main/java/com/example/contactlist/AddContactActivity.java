@@ -41,7 +41,9 @@ public class AddContactActivity extends AppCompatActivity {
         String lastName = getIntent().getStringExtra("lastName");
         String phoneNumber = getIntent().getStringExtra("phoneNumber");
         if (firstName == null) {return;}
-        
+        firstNameEditText.setText(firstName);
+        lastNameEditText.setText(lastName);
+        numberEditText.setText(phoneNumber);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

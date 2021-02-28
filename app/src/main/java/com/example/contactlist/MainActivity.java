@@ -89,9 +89,9 @@ public class MainActivity extends AppCompatActivity implements ContactsAdapter.O
     public void onItemSelected(int position) {
         Contact contact = contactsList.get(position);
         Intent intent = new Intent(this,AddContactActivity.class);
-        intent.putExtra("first name", contact.getFirstName());
-        intent.putExtra("last name", contact.getLastName());
-        intent.putExtra("phone number",contact.getPhoneNumber());
+        intent.putExtra("firstName", contact.getFirstName());
+        intent.putExtra("lastName", contact.getLastName());
+        intent.putExtra("phoneNumber",contact.getPhoneNumber());
         startActivity(intent);
     }
 }
