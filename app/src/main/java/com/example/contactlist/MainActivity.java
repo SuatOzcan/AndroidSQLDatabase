@@ -14,9 +14,12 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
+    ArrayList contactsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        fetchContacts();
     }
+
+    private void fetchContacts(){
+        setUpRecyclerVIew();
+    }
+    private void setUpRecyclerVIew(){
+        recyclerView = findViewById(R.id.contacts_recycler_view);
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
