@@ -17,13 +17,13 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ContactsAdapter.OnItemSelectedListener{
 
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager;
 
-    ArrayList contactsList;
+    ArrayList<Contact> contactsList;
 
 
     @Override
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new ContactsAdapter(contactsList);
+        adapter = new ContactsAdapter(contactsList, this);
         recyclerView.setAdapter(adapter);
     }
 
@@ -83,5 +83,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemSelected(int position) {
+        Contact contact = contactsList.get(position);
+        Intent intent = new Intent(this,AddContactActivity.class);
+        intent.putExtra("first name", contact.getFirstName());
+        intent.putExtra("last name", contact.getLastName());
+        intent.putExtra("phone number",contact.getPhoneNumber());
+        startActivity(intent);
     }
 }
