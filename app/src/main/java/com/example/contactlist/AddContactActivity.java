@@ -45,12 +45,22 @@ public class AddContactActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }else if (id==R.id.action_delete_contact){
+            DeleteContact();
             return true;
         }else if (id==R.id.action_save_contact){
+            SaveContact();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
 
+    }
+    public void SaveContact(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+    public void DeleteContact(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

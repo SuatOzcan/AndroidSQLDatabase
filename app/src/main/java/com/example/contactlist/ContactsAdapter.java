@@ -1,5 +1,6 @@
 package com.example.contactlist;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -32,13 +33,17 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
 
     @NonNull
     @Override
-    public ContactsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+    public ContactsViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+        LinearLayout layout = (LinearLayout) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.contact_list_item_view,
+                                                                                  viewGroup, false);
+        return new ContactsViewHolder(layout);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ContactsViewHolder holder, int position) {
-
+    public void onBindViewHolder(@NonNull ContactsViewHolder contactsViewHolder, int i) {
+               final Contact contact = contactsList.get(i);
+               contactsViewHolder.nameTextView.setText(contact.GetFullName());
+               contactsViewHolder.numberTextView.setText(contact.getPhoneNumber());
     }
 
     @Override

@@ -7,6 +7,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
@@ -19,7 +20,11 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
+    RecyclerView.Adapter adapter;
+    RecyclerView.LayoutManager layoutManager;
+
     ArrayList contactsList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +45,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void fetchContacts(){
+        contactsList = new ArrayList();
+        contactsList.add(new Contact("Suat","Ozcan","1234567890"));
+        contactsList.add(new Contact("Hakan","Ozbekir","0987654321"));
         setUpRecyclerVIew();
     }
+
     private void setUpRecyclerVIew(){
         recyclerView = findViewById(R.id.contacts_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        adapter = new ContactsAdapter(contactsList);
+        recyclerView.setAdapter(adapter);
     }
 
 
