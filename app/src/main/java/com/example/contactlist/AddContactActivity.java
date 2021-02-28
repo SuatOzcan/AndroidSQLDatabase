@@ -51,5 +51,6 @@ public class AddContactActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+
     }
 }
