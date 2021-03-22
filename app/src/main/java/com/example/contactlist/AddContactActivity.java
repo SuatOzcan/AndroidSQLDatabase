@@ -93,7 +93,11 @@ public class AddContactActivity extends AppCompatActivity {
             Contact newContact = new Contact(firstName, lastName, phoneNumber);
             db.contactDAO().insert(newContact);
         }else   {
-
+            Contact oldContact = db.contactDAO().findAContact(originalFirstName,originalLastName,originalPhoneNumber);
+            oldContact.setFirstName(firstName);
+            oldContact.setLastName(lastName);
+            oldContact.setPhoneNumber(phoneNumber);
+            db.contactDAO().update(oldContact);
         }
 
         Intent intent = new Intent(this, MainActivity.class);
