@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.view.View;
 
@@ -16,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements ContactsAdapter.OnItemSelectedListener{
 
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity implements ContactsAdapter.O
     RecyclerView.LayoutManager layoutManager;
 
     ArrayList<Contact> contactsList;
+
+    AppDatabase db;
 
 
     @Override
@@ -41,13 +45,19 @@ public class MainActivity extends AppCompatActivity implements ContactsAdapter.O
                 startActivity(intent);
             }
         });
+
+        db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "database-name").allowMainThreadQueries().build();
+
         fetchContacts();
     }
 
     private void fetchContacts(){
-        contactsList = new ArrayList();
-        contactsList.add(new Contact("Suat","Özcan","1234567890"));
-        contactsList.add(new Contact("Hakan","Özbekir","0987654321"));
+        List<Contact> contacts = db.contactDAO().getAllContacts();
+
+        contactsList = new ArrayList(contacts);
+
+      //  contactsList.add(new Contact("Suat","Özcan","1234567890"));
+      //  contactsList.add(new Contact("Hakan","Özbekir","0987654321"));
         setUpRecyclerVIew();
     }
 
