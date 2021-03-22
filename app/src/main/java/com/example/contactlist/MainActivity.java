@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity implements ContactsAdapter.O
 
     private void fetchContacts(){
         contactsList = new ArrayList();
-        contactsList.add(new Contact("Suat","Ozcan","1234567890"));
-        contactsList.add(new Contact("Hakan","Ozbekir","0987654321"));
+        contactsList.add(new Contact("Suat","Özcan","1234567890"));
+        contactsList.add(new Contact("Hakan","Özbekir","0987654321"));
         setUpRecyclerVIew();
     }
 
