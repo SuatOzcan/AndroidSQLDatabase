@@ -100,6 +100,14 @@ public class AddContactActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void DeleteContact(){
+
+        String firstName = firstNameEditText.getText().toString();
+        String lastName = lastNameEditText.getText().toString();
+        String phoneNumber = numberEditText.getText().toString();
+
+        Contact contact = db.contactDAO().findAContact(firstName,lastName,phoneNumber);
+        db.contactDAO().delete(contact);
+
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

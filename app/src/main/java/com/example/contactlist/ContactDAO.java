@@ -1,6 +1,7 @@
 package com.example.contactlist;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -17,4 +18,7 @@ public interface ContactDAO {
 
     @Insert
     void insert(Contact... contact);
+
+    @Delete
+    void delete(Contact... contact);
 }
